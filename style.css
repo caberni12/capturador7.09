@@ -1,0 +1,367 @@
+/* =====================================================
+   RESET / BASE
+   ===================================================== */
+   *{
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+  }
+  
+  body{
+    margin:0;
+    background:#f1f5f9;
+    color:#0f172a;
+  }
+  
+  /* =====================================================
+     CONTENEDOR GENERAL
+     ===================================================== */
+  .wrap{
+    width:100%;
+    max-width:100%;
+    padding:14px;
+  }
+  
+  .card{
+    width:100%;
+    background:#ffffff;
+    border-radius:24px;
+    padding:24px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+  }
+  
+  /* =====================================================
+     TITULOS
+     ===================================================== */
+  h2{
+    text-align:center;
+    margin:16px 0 28px;
+    font-size:18px;
+  }
+  
+  /* =====================================================
+     INPUTS / BOTONES
+     ===================================================== */
+  input,
+  button{
+    width:100%;
+    padding:20px;
+    margin-top:20px;
+    border-radius:24px;
+    border:1px solid #e2e8f0;
+    font-size:16px;
+  }
+  
+  button{
+    border:none;
+    font-weight:700;
+    cursor:pointer;
+  }
+  
+  /* =====================================================
+     COLORES
+     ===================================================== */
+  .primary{background:#0ea5e9;color:#fff}
+  .secondary{background:#64748b;color:#fff}
+  .success{background:#22c55e;color:#fff}
+  .warn{background:#f59e0b;color:#fff}
+  .danger{background:#ef4444;color:#fff}
+  
+  /* =====================================================
+     TABS SUPERIORES
+     ===================================================== */
+  .tabbar{
+    display:flex;
+    gap:12px;
+    margin-bottom:26px;
+    width:100%;
+  }
+  
+  .tabbar button{
+    flex:1;
+    padding:18px 12px;
+    font-size:15px;
+    border-radius:20px;
+  }
+  
+  /* =====================================================
+     CAMPOS CON BOTONES
+     ===================================================== */
+  .field{
+    display:flex;
+    gap:14px;
+    margin-top:24px;
+  }
+  
+  .field input{
+    flex:1;
+  }
+  
+  /* botones pequeños */
+  .qrbtn,
+  .clearbtn,
+  .flashqr{
+    width:64px;
+    height:64px;
+    border-radius:20px;
+    font-size:22px;
+  }
+  
+  .qrbtn{background:#22c55e;color:#fff}
+  .clearbtn{background:#f59e0b;color:#fff}
+  .flashqr{background:#0f172a;color:#fff}
+  
+  /* =====================================================
+     NOTAS / TOTAL
+     ===================================================== */
+  .note{
+    font-size:13px;
+    color:#64748b;
+    margin-top:10px;
+  }
+  
+  .total{
+    margin:24px 0;
+    padding:18px;
+    border-radius:24px;
+    background:#0f172a;
+    color:#fff;
+    text-align:center;
+    font-weight:700;
+  }
+  
+  /* =====================================================
+     PREVIEW
+     ===================================================== */
+  .preview{
+    margin-top:26px;
+    padding:20px;
+    border-radius:24px;
+    border:2px dashed #0ea5e9;
+  }
+  
+  /* =====================================================
+     SCANNER – MÁS AIREADO / CUADRADO
+     ===================================================== */
+  #scannerBox{
+    display:none;
+    position:relative;
+    width:100%;
+    max-width:460px;
+    height:340px;
+    margin:40px auto;
+    border-radius:28px;
+    overflow:hidden;
+    background:#000;
+  }
+  
+  /* marco más grande */
+  .scan-frame{
+    position:absolute;
+    inset:18%;
+    border-radius:24px;
+    border:2px solid rgba(255,255,255,.9);
+  }
+  
+  /* línea centrada */
+  .scan-line{
+    position:absolute;
+    left:18%;
+    right:18%;
+    height:2px;
+    background:#fff;
+    animation:scan 2s linear infinite;
+  }
+  
+  @keyframes scan{
+    0%{top:0}
+    50%{top:95%}
+    100%{top:0}
+  }
+  
+  /* controles */
+  .scanner-controls{
+    position:absolute;
+    bottom:18px;
+    left:18px;
+    right:18px;
+    display:flex;
+    gap:14px;
+  }
+  
+  .ctrl{
+    flex:1;
+    border-radius:18px;
+    padding:14px;
+  }
+  
+  /* =====================================================
+     LISTADO CAPTURA
+     ===================================================== */
+  .row{
+    background:#f8fafc;
+    padding:16px;
+    border-radius:18px;
+    margin-top:14px;
+  }
+  
+  .row.editing{
+    border:2px solid #0ea5e9;
+    background:#e0f2fe;
+  }
+  
+  .small{
+    font-size:12px;
+    color:#475569;
+  }
+  
+  .delbtn{
+    float:right;
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    border-radius:50%;
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:16px;
+  }
+  
+  /* =====================================================
+     MODAL CONSULTA
+     ===================================================== */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+  }
+  
+  .modal.show{display:flex}
+  
+  .modal-card{
+    background:#fff;
+    width:95%;
+    max-width:900px;
+    max-height:90vh;
+    border-radius:24px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+  }
+  
+  /* =====================================================
+     CONSULTA – LISTA NAVEGABLE
+     ===================================================== */
+  .table-scroll{
+    flex:1;
+    overflow-y:auto;
+    border-radius:18px;
+    border:1px solid #e2e8f0;
+    background:#f8fafc;
+  }
+  
+  #tablaConsulta{
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0 12px;
+  }
+  
+  #tablaConsulta thead th{
+    background:#0ea5e9;
+    color:#fff;
+    padding:16px;
+    border-radius:16px;
+  }
+  
+  #tablaConsulta tbody tr{
+    background:#fff;
+    cursor:pointer;
+  }
+  
+  #tablaConsulta td{
+    padding:18px;
+  }
+  
+  #tablaConsulta tbody tr.selected{
+    background:#bae6fd;
+    outline:2px solid #0ea5e9;
+    font-weight:700;
+  }
+  
+  /* =====================================================
+     TABS (COMPORTAMIENTO PÁGINA)
+     ===================================================== */
+  .tab{
+    display:none;
+    width:100%;
+  }
+  
+  .tab.active{
+    display:block;
+    min-height:75vh;
+  }
+  
+  /* =====================================================
+     IMPORTADOR – VISTA INDEPENDIENTE
+     ===================================================== */
+  #importar{
+    padding-top:10px;
+  }
+  
+  #importar h2{
+    margin-bottom:24px;
+  }
+  
+  /* =====================================================
+     ESCRITORIO (SIN SCANNER)
+     ===================================================== */
+  @media (min-width:768px){
+  
+    .wrap{
+      max-width:1200px;
+      margin:auto;
+    }
+  
+    .card{
+      padding:32px;
+    }
+  
+    #captura{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:32px;
+    }
+  
+    #captura h2,
+    #totalizador,
+    #preview,
+    #tabla,
+    #captura > button{
+      grid-column:1 / -1;
+    }
+  
+    .field{
+      display:grid;
+      grid-template-columns:1fr 64px 64px;
+      gap:14px;
+    }
+  
+    /* ❌ scanner NO existe en escritorio */
+    #scannerBox,
+    .scan-frame,
+    .scan-line,
+    .scanner-controls,
+    .qrbtn,
+    .flashqr,
+    .ctrl,
+    button.secondary{
+      display:none !important;
+    }
+  }
+  
